@@ -40,7 +40,7 @@ module.exports = {
     },
     images: {
         src : demo.src + 'assets/images/**/*',
-        dest: demo.dest + 'assets/',
+        dest: demo.dest + 'assets/images',
         get watch() { return this.src; }
     },
     'js-main': {
@@ -69,7 +69,7 @@ module.exports = {
         lib   : 'style',
         src   : demo.src + 'assets/css/*.css',
         dest  : demo.dest + 'assets/css/',
-        minify: false,
+        minify: true,
         get watch() { return this.src; }
     },
     'less': {
@@ -77,8 +77,8 @@ module.exports = {
         lang  : 'less',
         src   : demo.src + 'assets/less/*.less',
         dest  : demo.dest + 'assets/css/',
-        minify: false,
-        get watch() { return this.src; }
+        minify: true,
+        watch : demo.src + 'assets/less/**/*'
     },
     'postcss': {
         lib    : 'style',
@@ -97,23 +97,23 @@ module.exports = {
             }
         ],
         minify : true,
-        get watch() { return this.src; }
+        watch  : demo.src + 'assets/postcss/**/*'
     },
     'sass': {
         lib   : 'style',
         lang  : 'sass',
         src   : demo.src + 'assets/sass/*.{sass,scss}',
         dest  : demo.dest + 'assets/css/',
-        minify: false,
-        get watch() { return this.src; }
+        minify: true,
+        watch : demo.src + 'assets/sass/**/*'
     },
     'stylus': {
         lib   : 'style',
         lang  : 'stylus',
         src   : demo.src + 'assets/stylus/*.{styl,stylus}',
         dest  : demo.dest + 'assets/css/',
-        minify: false,
-        get watch() { return this.src; }
+        minify: true,
+        watch : demo.src + 'assets/stylus/**/*'
     },
 
     // SassDoc

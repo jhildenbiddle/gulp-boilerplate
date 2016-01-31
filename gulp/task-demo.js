@@ -75,10 +75,13 @@ module.exports = {
     'less': {
         lib   : 'style',
         lang  : 'less',
-        src   : demo.src + 'assets/less/*.less',
+        src   : [
+            demo.src + 'assets/less/*.less',
+            '!' + demo.src + 'assets/less/_*.less'
+        ],
         dest  : demo.dest + 'assets/css/',
         minify: true,
-        watch : demo.src + 'assets/less/**/*'
+        watch : demo.src + 'assets/less/**/*.less'
     },
     'postcss': {
         lib    : 'style',
@@ -105,12 +108,15 @@ module.exports = {
         src   : demo.src + 'assets/sass/*.{sass,scss}',
         dest  : demo.dest + 'assets/css/',
         minify: true,
-        watch : demo.src + 'assets/sass/**/*'
+        watch : demo.src + 'assets/sass/**/*.{sass,scss}'
     },
     'stylus': {
         lib   : 'style',
         lang  : 'stylus',
-        src   : demo.src + 'assets/stylus/*.{styl,stylus}',
+        src   : [
+            demo.src + 'assets/stylus/*.{styl,stylus}',
+            '!' + demo.src + 'assets/stylus/_*.{styl,stylus}'
+        ],
         dest  : demo.dest + 'assets/css/',
         minify: true,
         watch : demo.src + 'assets/stylus/**/*'

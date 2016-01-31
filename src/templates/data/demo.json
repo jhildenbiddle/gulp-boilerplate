@@ -1,0 +1,9 @@
+{
+    "title": "Gulp Boilerplate",
+    "sections": [
+        "less",
+        "postcss",
+        "sass",
+        "stylus"
+    ]
+}

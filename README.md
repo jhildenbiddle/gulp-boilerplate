@@ -1,2 +1,2 @@
 # gulp-boilerplate
-A build system boilerplate based gulp, configuration objects and auto-generated tasks
+A Note+Gulp build system based on configuration objects and auto-generated tasks.

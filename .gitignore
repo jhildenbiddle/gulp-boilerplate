@@ -1,0 +1,11 @@
+# Build
+_demo
+
+# Folders
+bower_components
+node_modules
+
+# OS
+._*
+.cache
+.DS_Store

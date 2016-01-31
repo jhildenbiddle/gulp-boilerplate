@@ -1,0 +1,11 @@
+@charset 'UTF-8';
+
+/// Background color
+$color-bg  : #c6538c;
+/// Text color
+$color-text: #fff;
+
+.sass {
+    background-color: $color-bg;
+    color: $color-text;
+}

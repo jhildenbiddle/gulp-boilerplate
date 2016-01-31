@@ -1,0 +1,65 @@
+{
+  "name": "gulp-boilerplate",
+  "version": "1.0.0",
+  "author": "John Hildenbiddle",
+  "description": "A Note+Gulp build system based on configuration objects and auto-generated tasks.",
+  "license": "MIT",
+  "homepage": "https://github.com/jhildenbiddle/gulp-boilerplate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://jhildenbiddle@github.com/jhildenbiddle/gulp-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jhildenbiddle/gulp-boilerplate/issues"
+  },
+  "keywords": [
+    "boilerplate",
+    "gulp",
+    "node"
+  ],
+  "devDependencies": {
+    "browser-sync": "2.11.0",
+    "browserify": "13.0.0",
+    "chai": "3.4.1",
+    "del": "2.2.0",
+    "gulp": "3.9.0",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-bump": "1.0.0",
+    "gulp-changed": "1.3.0",
+    "gulp-concat": "2.6.0",
+    "gulp-cssnano": "2.1.0",
+    "gulp-file-include": "0.13.7",
+    "gulp-gh-pages": "0.5.4",
+    "gulp-hb": "^2.6.5",
+    "gulp-if": "2.0.0",
+    "gulp-imagemin": "2.4.0",
+    "gulp-jshint": "2.0.0",
+    "gulp-less": "3.0.5",
+    "gulp-load-plugins": "1.2.0",
+    "gulp-minify-css": "1.2.3",
+    "gulp-notify": "2.2.0",
+    "gulp-postcss": "6.0.1",
+    "gulp-rename": "1.2.2",
+    "gulp-replace-task": "0.11.0",
+    "gulp-sass": "2.1.1",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-stylus": "2.2.0",
+    "gulp-task-listing": "1.0.1",
+    "gulp-uglify": "1.5.1",
+    "jshint": "2.8.0",
+    "jshint-stylish": "2.1.0",
+    "mkdirp": "0.5.1",
+    "mocha": "2.3.4",
+    "node-notifier": "4.4.0",
+    "normalize.css": "3.0.3",
+    "postcss": "5.0.14",
+    "run-sequence": "1.1.5",
+    "sassdoc": "2.1.19",
+    "vinyl-buffer": "1.0.0",
+    "vinyl-source-stream": "1.1.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  }
+}

@@ -4,6 +4,8 @@
 
 The purpose of this boilerplate is to simplify the process of creating new projects and reduce the amount of time spent managing build tasks. This is accomplished allowing all tasks, subtasks and watch tasks to be auto-generated based on configuration objects. Tasks can then be grouped and run sequentially or in parallel as needed.
 
+------
+
 - [Introduction](#introduction)
 - [Quick Start](#quick-start)
 - [Auto-Generated Tasks](#auto-generated-tasks)
@@ -12,15 +14,13 @@ The purpose of this boilerplate is to simplify the process of creating new proje
   - [Task Runners](#task-runners)
 - [Comments? Issues? Questions?](#comments-issues-questions)
 
-
-
 ------
-
-
 
 ## Introduction
 
-The boilerplate comes with a demo task configured to use each of the included task runners. The preconfigured task runners provide the following functionality:
+The boilerplate comes with a demo task configured to use each of the included task runners. Additional task runners can be added easily by installing packages and creating new task runner files as needed.
+
+The preconfigured task runners provide the following functionality:
 
 - **HTML**
   - Compile static HTML using string replacement and file includes

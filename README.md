@@ -2,7 +2,7 @@
 
 **A simplified build system based on configuration objects and auto-generated tasks**
 
-The purpose of this boilerplate is to simplify the process of creating new projects and reduce the amount of time spent managing build tasks. This is accomplished allowing all tasks, subtasks and watch tasks to be auto-generated based on configuration objects. Tasks can then be grouped and run sequentially or in parallel as needed.
+The purpose of this boilerplate is to simplify the process of creating new projects and reduce the time spent managing build tasks. This is accomplished allowing all tasks, subtasks and watch tasks to be auto-generated based on configuration objects. Tasks can then be grouped and run sequentially or in parallel as needed.
 
 ------
 
@@ -23,17 +23,17 @@ The boilerplate comes with a demo task configured to use each of the included ta
 The preconfigured task runners provide the following functionality:
 
 - **HTML**
-  - Compile static HTML using string replacement and file includes
-  - Compile static HTML from [handlebars](http://handlebarsjs.com/) templates, helpers and partials
+  - Compile static HTML with string replacement and file includes
+  - Compile static HTML using [handlebars](http://handlebarsjs.com/) templates, helpers and partials
 - **Images**
-  - Optimize PNG, JPEG, GIF and SVG images
+  - Optimize GIF, JPEG, PNG and SVG images
 - **JavaScript**
   - Bundle and `require` modules using [Browserify](http://browserify.org/)
   - Generate source maps
   - Concatenate files
   - Minify using [UglifyJS](http://lisperator.net/uglifyjs/)
   - String replacement
-  - Include files
+  - File includes
   - Lint using [JSHint](http://jshint.com/)
 - **Stylesheets**
   - Compile [Less](http://lesscss.org/), [PostCSS](https://github.com/postcss/postcss), [Sass](http://sass-lang.com/) and [Stylus](http://stylus-lang.com/)
@@ -48,11 +48,11 @@ The preconfigured task runners provide the following functionality:
 - **Test**
   - Create unit tests with [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/)
 - **Misc**
-  - Bump patch|minor|major or beta version number
+  - Bump [betapatch|minor|major] version number in .json files
   - Clean project build files and directories
-  - Conditional processing in gulp tasks
+  - Conditionally process files in gulp tasks
   - Copy files
-  - Deploy website to GitHub pages
+  - Deploy files to GitHub pages
   - List all auto-generated tasks
 
 ## Quick Start
@@ -95,14 +95,15 @@ var gulpTaskObj = {
     build: {
         // File containing configuration data for each subtask below
         config: require('./gulp/task-build'),
-        // The watch prop determines if a watch task should be automatically
-        // added to order sequence. The watch task will still be generated, but in
-        // this case it will not run as part of the build task.
+        // The watch property determines if the auto-generated watch task should be
+        // added to the order sequence. The watch task will generated regardless if
+        // watch paths are specified in the config file, but setting this property
+        // to false will prevent the watch task from running as part of the "build" task.
         watch : false,
-        // Order determines the subtask run sequence. Arrays of subtasks are run
-        // in parallel. Subtasks not in arrays will be run sequentially.
+        // The order array determines the subtask run sequence. Arrays of subtasks
+        // are run in parallel. Subtasks not in arrays will be run sequentially.
         order : [
-            // These tasks are in an array so they will run in parallel.
+            // This array of subtasks will run in parallel.
             [
                 'html-handlebars',
                 'images',
@@ -111,36 +112,32 @@ var gulpTaskObj = {
                 'sassdoc'
             ]
         ],
-        // These tasks will be created but not run as part of the build task.
-        // This allows these tasks to be run individually or with other main tasks.
-        // In this case, we want the "browsersync" (server) and "clean" tasks to be
-        // be available, but not run with "gulp build".
+        // The tasks array defines tasks to be created but not run as part of the
+        // main task. This allows these tasks to be run individually or as part of
+        // a separate main task. In this case, we want the "browsersync" (server) and
+        // "clean" tasks to be available, but not run with "gulp build".
         tasks: [
             'browsersync',
             'clean'
         ]
     },
     // Creates a main task named "dev"
-    // This task simply runs the "build" task, then starts the development server
-    // and watch task.
     dev: {
-        // This task is reusing main and subtasks tasks created above, so no config
-        // file is needed.
+        // This task is reusing existing "build" tasks so a config file is not needed.
         order: [
-            // This task will be run first. When it completes...
+            // This task runs the "build" task first, then starts the development server
+            // and watch task for the "build" task.
             'build',
-            // ... the following tasks will be run in parallel
             [
-                 // Referenceing existing subtaasks is done using the
-                 // maintask-subtask name convention
+                 // Reference existing subtaask using a "maintask-subtask" convention
                 'build-watch',
                 'build-browsersync'
             ]
         ]
     },
     // Creates a main task named "clean"
-    // The build clean task could also be called directly using "gulp build-clean",
-    // but creating this task provides a simplfiied "gulp clean" task.
+    // This task is proving a simplfiied way of launching the "build-clean" task.
+    // The "build-clean" task could also be run directly using "gulp build-clean".
     clean: {
         order: [
             'build-clean'
@@ -151,9 +148,11 @@ var gulpTaskObj = {
 
 ### Task Configuration
 
-Task configuration files are located in the `./gulp/` directory. These files contain the subtask configuration information, which is used to auto-generate a gulp task based on the specified task runner.
+Task configuration files are located in the `./gulp/` directory. These files contain the subtask configuration information, which is used to auto-generate gulp tasks based on the specified task runner.
 
-The properties used for each subtask can be found in the corresponding task runner file located in the `./gulp/lib/` directory. The `lib` property is used to specify the associated task runner for the subtask. If the subtask name matches the task runner name, the `lib` property can be omitted.
+The properties used for each subtask can be found in the corresponding task runner file located in the `./gulp/lib/` directory.
+
+The `lib` property is used to specify the associated task runner for the subtask. If the subtask name matches the task runner name, the `lib` property can be omitted.
 
 *Configure these files as needed for your project.*
 
@@ -216,9 +215,7 @@ module.exports = {
 
 Task runners are located in the `./gulp/lib/` directory. These files contain the functions used to process files based on the configuration data for each task. Auto-generated tasks simply pass configuration data to the specified task runner each time the task is run.
 
-A handful of task runners are preconfigured and ready for use. Extending the boilerplate with additional task runners is easily accomplished by adding a new task runner file to the `./gulp/lib/` directory and specifying its use by setting the `lib` property in a task configuration file.
-
-Configuration properties used by each task runner can be found at the top of each task runner file located in the `./gulp/lib/` directory.
+A handful of task runners are preconfigured and ready for use. Extending the boilerplate with additional task runners is easily accomplished by installing packages and creating new task runner files as needed to the `./gulp/lib/` directory, then specifying the `lib` property in a task configuration file for it to be used.
 
 ## Comments? Issues? Questions?
 

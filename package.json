@@ -2,7 +2,7 @@
   "name": "gulp-boilerplate",
   "version": "1.0.0",
   "author": "John Hildenbiddle",
-  "description": "A Note+Gulp build system based on configuration objects and auto-generated tasks.",
+  "description": "A simplified build system based on configuration objects and auto-generated tasks",
   "license": "MIT",
   "homepage": "https://github.com/jhildenbiddle/gulp-boilerplate#readme",
   "repository": {
@@ -15,7 +15,19 @@
   "keywords": [
     "boilerplate",
     "gulp",
-    "node"
+    "handlebars",
+    "html",
+    "image",
+    "javascript",
+    "js",
+    "less",
+    "node",
+    "optimize",
+    "postcss",
+    "sass",
+    "scss",
+    "style",
+    "stylus"
   ],
   "devDependencies": {
     "browser-sync": "2.11.0",

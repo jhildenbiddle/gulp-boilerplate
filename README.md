@@ -55,15 +55,15 @@ The boilerplate comes with a variety of preconfigured task runners that provide 
 
 Gulp tasks are configured and auto-generated based on the following:
 
-- A unified [task list](#tasklist)
+- A unified [task list](#task-list)
   
   This list specifies the tasks to auto-generate and the order in which they are run.
   
-- One or more [task configuration](#taskconfiguration) files
+- One or more [task configuration](#task-configuration) files
   
   These files contain the subtask configuration information used to auto-generate gulp tasks.
   
-- [Task runners](#taskrunners)
+- [Task runners](#task-runners)
   
   These files contain the functions used to process files based on the configuration data for each task.
 
@@ -207,4 +207,3 @@ Configuration properties used by each task runner can be found at the top of eac
 ## Comments? Issues? Questions?
 
 Create a [new issue](https://github.com/jhildenbiddle/gulp-boilerplate/issues) here on GitHub.
-

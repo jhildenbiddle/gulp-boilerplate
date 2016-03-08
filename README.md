@@ -1,6 +1,6 @@
 ## Gulp Boilerplate
 
-**A simplified build system based on configuration objects and auto-generated tasks**
+**A Node/Gulp build system based on configuration objects and auto-generated tasks**
 
 The purpose of this boilerplate is to simplify the process of creating new projects and reduce the time spent managing build tasks. This is accomplished allowing all tasks, subtasks and watch tasks to be auto-generated based on configuration objects. Tasks can then be grouped and run sequentially or in parallel as needed.
 
